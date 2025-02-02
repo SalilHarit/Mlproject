@@ -6,9 +6,13 @@ def get_requirements(file_path: str) -> List[str]:
     Read requirements file and return list of requirements
   
   '''
+
   requirements=[]
+  if "-e" in requirements:
+      requirements.remove("-e")
   with open(file_path) as f:
     requirements = f.read().splitlines()
+   
 
 setup(
     name='mlproject',
